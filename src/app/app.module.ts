@@ -12,12 +12,22 @@ import {
   EventRouteActivator,
   EventListResolver,
   CreateSessionComponent,
-  DurationPipe
+  DurationPipe,
+  UpvoteComponent,
+  VoterService,
+  LocationValidator
 } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
-import { TOASTR_TOKEN, Toastr, JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective } from './common/index';
+import {
+  TOASTR_TOKEN,
+  Toastr,
+  JQ_TOKEN,
+  CollapsibleWellComponent,
+  SimpleModalComponent,
+  ModalTriggerDirective
+} from './common/index';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
@@ -38,9 +48,11 @@ let jQuery = window['$'];
     SessionListComponent,
     CreateSessionComponent,
     CollapsibleWellComponent,
+    UpvoteComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    LocationValidator
   ],
   imports: [
     BrowserModule,
@@ -50,6 +62,7 @@ let jQuery = window['$'];
   ],
   providers: [
     EventService,
+    VoterService,
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQ_TOKEN, useValue: jQuery },
     EventRouteActivator,
